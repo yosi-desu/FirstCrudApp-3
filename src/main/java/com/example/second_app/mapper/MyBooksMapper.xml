@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.second_app.mapper.MyBooksMapper">
+    <select id="selectAll" resultType="com.example.second_app.domain.MyBooksModel">
+        SELECT * FROM  my_books;
+    </select>
+
+    <select id="selectOne" resultType="com.example.second_app.domain.MyBooksModel">
+        SELECT * FROM WHERE  id = #{id}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO my_books (title,author) VALUES (#{title},#{author})
+    </insert>
+
+    <update id="update">
+        UPDATE my_books set title=#{title},author
+    </update>
+
+    <delete id="delete">
+        DELETE FROM my_books WHERE id = #{id}
+    </delete>
+</mapper>
